@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/coinlog/static/css/main.9015baff.css",
-    "main.js": "/coinlog/static/js/main.49784b03.js",
+    "main.js": "/coinlog/static/js/main.caca0827.js",
     "index.html": "/coinlog/index.html",
     "main.9015baff.css.map": "/coinlog/static/css/main.9015baff.css.map",
-    "main.49784b03.js.map": "/coinlog/static/js/main.49784b03.js.map"
+    "main.caca0827.js.map": "/coinlog/static/js/main.caca0827.js.map"
   },
   "entrypoints": [
     "static/css/main.9015baff.css",
-    "static/js/main.49784b03.js"
+    "static/js/main.caca0827.js"
   ]
 }
