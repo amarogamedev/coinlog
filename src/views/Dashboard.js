@@ -8,6 +8,7 @@ import { BsCashCoin, BsCart2, BsCoin, BsCalendar4Week, BsJournalBookmark, BsFunn
 import TransactionModal from "../components/TransactionModal";
 import FilterModal from "../components/FilterModal";
 import DeleteModal from "../components/DeleteModal";
+import InitialValueModal from "../components/InitialValueModal";
 
 let initialValue = 3000
 
@@ -147,7 +148,7 @@ export default class Dashboard extends React.Component {
         //substituir esse parametro por um get all transactions
         const transactions = transactionList.map(transaction => {
             return (
-                <tr>
+                <tr key={transaction.value + transaction.description}>
                     {transaction.type === 'Expense' ?
                         <th scope="row"><div className="text-danger">{transaction.type}</div></th> :
                         <th scope="row"><div className="text-success">{transaction.type}</div></th>}
@@ -209,7 +210,7 @@ export default class Dashboard extends React.Component {
                                     //<div className="text mb-2">Texto Texto Texto Texto </div>
                                 }
                                 <div className="d-grid gap-2">
-                                    <TransactionModal buttonVariant="secondary mb-2" options={this.categoryService.getAllCategoryNames()} name='New transaction' buttonContent={
+                                    <InitialValueModal buttonVariant="secondary mb-2" buttonContent={
                                         <>
                                             <BsPencil size={16} /> &nbsp;&nbsp;Edit initial value
                                         </>
@@ -230,7 +231,7 @@ export default class Dashboard extends React.Component {
                             </div>
                             <div className="container">
                                 Welcome to CoinLog! This is a student project made by Luis Fellipe Amaro where you can manage your finances.
-                                The data is saved locally on your browser and can be deleted on the settings.
+                                The data is saved locally on your browser and can be deleted on the settings
                             </div>
                         </div>
                     </Card.Body >

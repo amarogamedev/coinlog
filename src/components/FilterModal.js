@@ -22,7 +22,7 @@ function MyVerticallyCenteredModal(props) {
               <div className="text-body fw-bold mb-2">Minimum value</div>
               <div class="input-group mb-3">
                 <span class="input-group-text">$</span>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" />
+                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" />
               </div>
             </div>
           </Col>
@@ -31,7 +31,7 @@ function MyVerticallyCenteredModal(props) {
               <div className="text-body fw-bold mb-2">Maximum value</div>
               <div class="input-group mb-3">
                 <span class="input-group-text">$</span>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" />
+                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" />
               </div>
             </div>
           </Col>
