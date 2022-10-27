@@ -34,7 +34,7 @@ function MyVerticallyCenteredModal(props) {
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant='primary' onClick={props.onHide}>View source code</Button>
+        <Button variant='primary' onClick='https://github.com/amarogamedev/coinlog'>View source code</Button>
         <Button variant='secondary' onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
