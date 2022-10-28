@@ -56,7 +56,7 @@ export default class Dashboard extends React.Component {
                         &nbsp;&nbsp;&nbsp;Current balance: {Intl.NumberFormat('en-US', { style: "currency", currency: "USD", })
                             .format(this.transactionService.getBalance(this.state.transactionList))}</div></Card.Header>
                     <Card.Body>
-                        <div className="d-flex align-items-center me-5 mb-2">
+                        <div className="d-flex align-items-center mb-2">
                             <div className="container">
                                 <div className="d-grid gap-2">
                                     <InitialValueModal dashboard={this} buttonVariant="secondary mb-2" buttonContent={<><BsPencil size={16} /> &nbsp;&nbsp;Edit initial value</>} />
@@ -70,7 +70,7 @@ export default class Dashboard extends React.Component {
                                         buttonContent={<><BsCart2 size={16} /> &nbsp;&nbsp;Add new expense</>} />
                                 </Stack>
                             </div>
-                            <div className="container">
+                            <div className="container w-100">
                                 Welcome to CoinLog! This is a student project made by Luis Fellipe Amaro where you can manage your finances.
                                 The data is saved locally on your browser and can be deleted on the settings
                             </div>

@@ -1,16 +1,22 @@
 import 'bootswatch/dist/zephyr/bootstrap.css'
+import './custom.css'
 import React from "react";
 import Navbar from "./components/Navbar";
 import Dashboard from './views/Dashboard';
+import { Col, Container, Row } from 'react-bootstrap';
 
 function App() {
   return (
-    <div>
+    <>
       <Navbar />
-      <div className="container my-5">
-        <Dashboard />
-      </div>
-    </div>
+      <Container className='my-4'>
+        <Row>
+          <Col>
+            <Dashboard />
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 

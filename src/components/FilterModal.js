@@ -69,7 +69,7 @@ export default function FilterModal(props) {
 
   return (
     <>
-      <Button variant={props.buttonVariant} onClick={() => setModalShow(true)}>
+      <Button disabled={true} variant={props.buttonVariant} onClick={() => setModalShow(true)}>
         {props.buttonContent}
       </Button>
 
