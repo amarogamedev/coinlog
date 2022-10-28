@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <div className="container w-50 my-5">
+      <div className="container my-5">
         <Dashboard />
       </div>
     </div>

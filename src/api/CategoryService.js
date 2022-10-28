@@ -2,6 +2,7 @@ import React from "react";
 import { BsCupStraw, BsCart2, BsHandbag, BsShop, BsCameraReels, BsSpeedometer2, BsGeoAlt, BsCalendarCheck, BsTools, BsCreditCard, BsTornado, BsEnvelopeOpen, BsGraphUp, BsDice5, BsMegaphone, BsGift, BsQuestionCircle } from "react-icons/bs";
 
 const categories = [
+    'None',
     'Meals',
     'Groceries',
     'Clothing',
@@ -18,10 +19,10 @@ const categories = [
     'Gambling',
     'Sale',
     'Gift',
-    'None',
 ]
 
 const icons = [
+    <BsQuestionCircle/>,
     <BsCupStraw />,
     <BsCart2 />,
     <BsHandbag />,
@@ -37,8 +38,7 @@ const icons = [
     <BsGraphUp />,
     <BsDice5/>,
     <BsMegaphone />,
-    <BsGift />,
-    <BsQuestionCircle/>
+    <BsGift />
 ]
 
 export default class CategoryService {

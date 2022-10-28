@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { BsMenuButtonWideFill } from 'react-icons/bs';
 
-function MyVerticallyCenteredModal(props) {
+function VerticallyCenteredModal(props) {
   return (
     <Modal
       {...props}
@@ -24,8 +24,7 @@ function MyVerticallyCenteredModal(props) {
             <div className="card-body">
               <div className="text-body fs-5 fw-bold">Luis Fellipe Amaro</div>
               I'm a 19 year old developer and I have been programming since 2019. I started studying web development in 2022 and this is a project I've made
-              to gain experience with JavaScript, HTML and CSS<br />
-              <br />
+              to gain experience with JavaScript, HTML and CSS<br /><br />
               <a href="https://github.com/amarogamedev" className="card-link">Github</a>
               <a href="https://www.linkedin.com/in/luisfellipeamaro/" className="card-link">LinkedIn</a>
               <a href="https://discordapp.com/users/553007786766761996" className="card-link">Discord</a>
@@ -50,7 +49,7 @@ export default function AboutModal(props) {
         {props.buttonContent}
       </Button>
 
-      <MyVerticallyCenteredModal
+      <VerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
       />

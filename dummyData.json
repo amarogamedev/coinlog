@@ -1,0 +1,92 @@
+[
+    {
+        "type": "Expense",
+        "category": "Meals",
+        "value": 20.80,
+        "year": 2022,
+        "month": 10,
+        "day": 25,
+        "description": "pizza"
+    },
+    {
+        "type": "Income",
+        "category": "Investment",
+        "value": 500,
+        "year": 2022,
+        "month": 10,
+        "day": 25,
+        "description": "bitcoin"
+    },
+    {
+        "type": "Expense",
+        "category": "Clothing",
+        "value": 150,
+        "year": 2022,
+        "month": 10,
+        "day": 25,
+        "description": "nike t shirt"
+    },
+    {
+        "type": "Income",
+        "category": "Sale",
+        "value": 40,
+        "year": 2022,
+        "month": 10,
+        "day": 25,
+        "description": "sold my old shoes"
+    },
+    {
+        "type": "Expense",
+        "category": "Mobility",
+        "value": 50,
+        "year": 2022,
+        "month": 10,
+        "day": 25,
+        "description": "gas"
+    },
+    {
+        "type": "Income",
+        "category": "Gambling",
+        "value": 100,
+        "year": 2022,
+        "month": 10,
+        "day": 25,
+        "description": "palmeiras game"
+    },
+    {
+        "type": "Expense",
+        "category": "Bills",
+        "value": 300,
+        "year": 2022,
+        "month": 10,
+        "day": 25,
+        "description": "credit card bill"
+    },
+    {
+        "type": "Income",
+        "category": "Salary",
+        "value": 1500,
+        "year": 2022,
+        "month": 10,
+        "day": 25,
+        "description": "paytrack"
+    },
+    {
+        "type": "Expense",
+        "category": "Entertainment",
+        "value": 20,
+        "year": 2022,
+        "month": 10,
+        "day": 25,
+        "description": "movie"
+    },
+    {
+        "type": "Income",
+        "category": "Gift",
+        "value": 50,
+        "year": 2022,
+        "month": 10,
+        "day": 25,
+        "description": "birthday gift"
+    }
+]

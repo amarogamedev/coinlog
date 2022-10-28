@@ -3,6 +3,7 @@ import { Stack } from "react-bootstrap";
 import { BsCurrencyExchange, BsGear, BsCardList } from "react-icons/bs";
 import CategoryService from "../api/CategoryService";
 import AboutModal from "./AboutModal";
+import SettingsModal from "./SettingsModal";
 
 export default class Navbar extends React.Component {
 
@@ -21,16 +22,8 @@ export default class Navbar extends React.Component {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarColor01">
                         <Stack direction="horizontal" gap={2}>
-                            <AboutModal buttonContent={
-                                <>
-                                    <BsCardList size={24} /> &nbsp;&nbsp;&nbsp;About
-                                </>
-                            } />
-                            <AboutModal buttonContent={
-                                <>
-                                    <BsGear size={24} /> &nbsp;&nbsp;&nbsp;Settings
-                                </>
-                            } />
+                            <AboutModal buttonContent={<><BsCardList size={24} /> &nbsp;&nbsp;&nbsp;About</>} />
+                            <SettingsModal buttonContent={<><BsGear size={24} /> &nbsp;&nbsp;&nbsp;Settings</>} />
                         </Stack>
                     </div>
                 </div>

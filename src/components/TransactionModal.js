@@ -1,8 +1,65 @@
 import React from 'react';
-import { Form, Button, Modal, Col, Row } from 'react-bootstrap';
+import { Button, Modal, Col, Row } from 'react-bootstrap';
 import { BsJournalPlus } from 'react-icons/bs';
+import TransactionService from '../api/TransactionService';
 
-function MyVerticallyCenteredModal(props) {
+let type;
+let category = React.createRef();
+let value = React.createRef();
+let description = React.createRef();
+
+const transactionService = new TransactionService();
+
+function insertTransaction(transaction, index, dashboard, onHide) {
+  console.log(dashboard);
+  index === null ? transactionService.insertTransaction(transaction) : transactionService.insertTransactionOnIndex(transaction, index);
+  dashboard.updateData();
+  onHide();
+}
+
+function generateTransaction() {
+  const today = new Date();
+  return (
+    {
+      "type": type,
+      "category": category.current.value,
+      "value": value.current.value,
+      "year": today.getFullYear(),
+      "month": today.getMonth() + 1,
+      "day": today.getDate(),
+      "description": description.current.value
+    }
+  )
+}
+
+function fillCategory (transaction) {
+  if(transaction !== undefined && transaction !== null) {
+    return transaction.category;
+  }
+  else {
+    return null;
+  }
+}
+
+function fillValue (transaction) {
+  if(transaction !== undefined && transaction !== null) {
+    return transaction.value;
+  }
+  else {
+    return null;
+  }
+}
+
+function fillDescription (transaction) {
+  if(transaction !== undefined && transaction !== null) {
+    return transaction.description;
+  }
+  else {
+    return null;
+  }
+}
+
+function VerticallyCenteredModal(props) {
   return (
     <Modal
       {...props}
@@ -20,55 +77,30 @@ function MyVerticallyCenteredModal(props) {
           <Col>
             <div>
               <div className="text-body fw-bold mb-2">Value</div>
-              <div class="input-group mb-3">
-                <span class="input-group-text">$</span>
-                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" />
+              <div className="input-group mb-3">
+                <span className="input-group-text">$</span>
+                <input type="number" className="form-control" defaultValue={fillValue(props.transaction)} ref={value} aria-label="Amount (to the nearest dollar)" />
               </div>
             </div>
-
           </Col>
           <Col>
             <div className="text-body fw-bold mb-2">Category</div>
-            <select className="form-select" id="exampleSelect1">
-              <option>None</option>
+            <select className="form-select" defaultValue={fillCategory(props.transaction)} ref={category} id="exampleSelect1">
               {props.options}
             </select>
           </Col>
         </Row>
         <Row>
           <Col>
-            <div className="d-flex align-items-center me-5 mb-2">
-              <Form>
-                <div className="text-body fw-bold mb-2">Type</div>
-                <div key={`reverse-radio`} className="mb-3">
-                  <Form.Check
-                    label="Income"
-                    name="group1"
-                    type="radio"
-                    id={`reverse-radio-1`}
-                    defaultChecked={props.type === 'Income'}
-                  />
-                  <Form.Check
-                    label="Expense"
-                    name="group1"
-                    type="radio"
-                    id={`reverse-radio-2`}
-                    defaultChecked={props.type === 'Expense'}
-                  />
-                </div>
-              </Form>
-            </div>
-          </Col>
-          <Col>
             <div>
               <div className="text-body fw-bold mb-2">Description</div>
-              <textarea className="form-control" id="exampleTextarea" rows="1"></textarea>
+              <textarea className="form-control" defaultValue={fillDescription(props.transaction)} ref={description} id="exampleTextarea" rows="2"></textarea>
             </div>
           </Col>
         </Row>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant='primary' onClick={props.onHide}>Save</Button>
+        <Button variant='primary' onClick={() => insertTransaction(generateTransaction(), props.index, props.dashboard, props.onHide)}>Save</Button>
         <Button variant='secondary' onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
@@ -77,19 +109,22 @@ function MyVerticallyCenteredModal(props) {
 
 export default function TransactionModal(props) {
   const [modalShow, setModalShow] = React.useState(false);
-
+  type = props.type;
   return (
     <>
       <Button variant={props.buttonVariant} onClick={() => setModalShow(true)}>
         {props.buttonContent}
       </Button>
 
-      <MyVerticallyCenteredModal
+      <VerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
         options={props.options}
         name={props.name}
         type={props.type}
+        transaction={props.transaction}
+        index={props.index}
+        dashboard={props.dashboard}
       />
     </>
   );

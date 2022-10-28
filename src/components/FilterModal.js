@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Button, Modal, Col, Row } from 'react-bootstrap';
 import { BsJournalPlus } from 'react-icons/bs';
 
-function MyVerticallyCenteredModal(props) {
+function VerticallyCenteredModal(props) {
   return (
     <Modal
       {...props}
@@ -42,18 +42,8 @@ function MyVerticallyCenteredModal(props) {
               <Form>
                 <div className="text-body fw-bold mb-2">Type</div>
                 <div key={`reverse-radio`} className="mb-3">
-                  <Form.Check
-                    label="Income"
-                    name="group1"
-                    type="radio"
-                    id={`reverse-radio-1`}
-                  />
-                  <Form.Check
-                    label="Expense"
-                    name="group1"
-                    type="radio"
-                    id={`reverse-radio-2`}
-                  />
+                  <Form.Check label="Income" name="group1" type="radio" id={`reverse-radio-1`} />
+                  <Form.Check label="Expense" name="group1" type="radio" id={`reverse-radio-2`} />
                 </div>
               </Form>
             </div>
@@ -83,7 +73,7 @@ export default function FilterModal(props) {
         {props.buttonContent}
       </Button>
 
-      <MyVerticallyCenteredModal
+      <VerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
         options={props.options}
