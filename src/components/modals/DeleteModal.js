@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { BsTrash } from 'react-icons/bs';
-import TransactionService from '../api/TransactionService';
+import TransactionService from '../../api/TransactionService';
 
 const transactionService = new TransactionService();
 

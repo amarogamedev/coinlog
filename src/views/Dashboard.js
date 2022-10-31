@@ -1,17 +1,16 @@
 import React from "react";
 import CategoryService from "../api/CategoryService";
-import TransactionService from "../api/TransactionService";
+import TransactionService from '../api/TransactionService';
 
-import { Card, Col, Row, Stack } from "react-bootstrap";
+import { Card, Stack } from "react-bootstrap";
 import { Chart } from "react-google-charts";
 
-import { BsCashCoin, BsCart2, BsCoin, BsCalendar4Week, BsJournalBookmark, BsFunnel, BsPencil } from "react-icons/bs";
+import { BsCashCoin, BsCart2, BsCoin, BsCalendar4Week, BsJournalBookmark, BsPencil } from "react-icons/bs";
 
-import TransactionModal from "../components/TransactionModal";
-import FilterModal from "../components/FilterModal";
-import InitialValueModal from "../components/InitialValueModal";
 import TransactionTable from "../components/TransactionTable";
-import MockDataModal from "../components/MockDataModal";
+import TransactionModal from "../components/modals/TransactionModal";
+import InitialValueModal from "../components/modals/InitialValueModal";
+import MockDataModal from "../components/modals/MockDataModal";
 
 export default class Dashboard extends React.Component {
 
@@ -27,7 +26,6 @@ export default class Dashboard extends React.Component {
     }
 
     updateData = () => {
-        // force a re-render
         this.forceUpdate();
         this.setState({ transactionList: this.transactionService.getAllTransactions() });
     };
@@ -50,7 +48,7 @@ export default class Dashboard extends React.Component {
     render() {
         return (
             <div>
-                <MockDataModal dashboard={this}/>
+                <MockDataModal dashboard={this} />
                 <Card>
                     <Card.Header><div className="text-body fs-4 fw-bold"><BsCoin />
                         &nbsp;&nbsp;&nbsp;Current balance: {Intl.NumberFormat('en-US', { style: "currency", currency: "USD", })
@@ -111,17 +109,7 @@ export default class Dashboard extends React.Component {
                 <br />
                 <Card>
                     <Card.Header>
-                        <Row>
-                            <Col>
-                                <div className="text-body fs-4 fw-bold"><BsJournalBookmark />&nbsp;&nbsp;&nbsp;Transactions</div>
-                            </Col>
-                            <Col style={{ display: 'flex', justifyContent: 'right' }}>
-                                <Stack direction="horizontal" gap={2}>
-                                    <FilterModal buttonVariant="secondary" options={this.categoryService.getAllCategoryNames()} buttonContent={
-                                        <><BsFunnel size={16} /> &nbsp;&nbsp;Filter</>} />
-                                </Stack>
-                            </Col>
-                        </Row>
+                        <div className="text-body fs-4 fw-bold"><BsJournalBookmark />&nbsp;&nbsp;&nbsp;Transactions</div>
                     </Card.Header>
                     {TransactionTable(this.state.transactionList, this)}
                 </Card>

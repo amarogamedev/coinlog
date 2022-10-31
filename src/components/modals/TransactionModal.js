@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal, Col, Row } from 'react-bootstrap';
 import { BsJournalPlus } from 'react-icons/bs';
-import TransactionService from '../api/TransactionService';
+import TransactionService from '../../api/TransactionService';
 
 let type;
 let category = React.createRef();
@@ -23,7 +23,7 @@ function generateTransaction() {
     {
       "type": type,
       "category": category.current.value,
-      "value": value.current.value,
+      "value": +value.current.value,
       "year": today.getFullYear(),
       "month": today.getMonth() + 1,
       "day": today.getDate(),

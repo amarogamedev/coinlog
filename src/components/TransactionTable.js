@@ -1,7 +1,7 @@
 import { BsPencil, BsTrash } from "react-icons/bs";
 import CategoryService from "../api/CategoryService";
-import DeleteModal from "./DeleteModal";
-import TransactionModal from "./TransactionModal";
+import DeleteModal from "./modals/DeleteModal";
+import TransactionModal from "./modals/TransactionModal";
 
 const categoryService = new CategoryService();
 

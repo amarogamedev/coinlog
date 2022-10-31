@@ -2,8 +2,8 @@ import React from "react";
 import { Stack } from "react-bootstrap";
 import { BsCurrencyExchange, BsGear, BsCardList } from "react-icons/bs";
 import CategoryService from "../api/CategoryService";
-import AboutModal from "./AboutModal";
-import SettingsModal from "./SettingsModal";
+import AboutModal from "./modals/AboutModal";
+import SettingsModal from "./modals/SettingsModal";
 
 export default class Navbar extends React.Component {
 
