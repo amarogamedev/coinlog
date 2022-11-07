@@ -64,13 +64,14 @@ export default class TransactionService {
   }
 
   generateMockData() {
+    const today = new Date();
     localStorage.setItem("transactions", JSON.stringify([
       {
         "type": "Expense",
         "category": "Meals",
         "value": 20.80,
-        "year": 2022,
-        "month": 10,
+        "year": today.getFullYear(),
+        "month": today.getMonth() + 1,
         "day": 25,
         "description": "pizza"
       },
@@ -78,8 +79,8 @@ export default class TransactionService {
         "type": "Income",
         "category": "Investment",
         "value": 500,
-        "year": 2022,
-        "month": 10,
+        "year": today.getFullYear(),
+        "month": today.getMonth() + 1,
         "day": 23,
         "description": "bitcoin"
       },
@@ -87,8 +88,8 @@ export default class TransactionService {
         "type": "Expense",
         "category": "Clothing",
         "value": 500,
-        "year": 2022,
-        "month": 10,
+        "year": today.getFullYear(),
+        "month": today.getMonth() + 1,
         "day": 22,
         "description": "nike t shirt and jacket"
       },
@@ -96,8 +97,8 @@ export default class TransactionService {
         "type": "Income",
         "category": "Sale",
         "value": 600,
-        "year": 2022,
-        "month": 10,
+        "year": today.getFullYear(),
+        "month": today.getMonth() + 1,
         "day": 21,
         "description": "sold my old shoes"
       },
@@ -105,8 +106,8 @@ export default class TransactionService {
         "type": "Expense",
         "category": "Mobility",
         "value": 200,
-        "year": 2022,
-        "month": 10,
+        "year": today.getFullYear(),
+        "month": today.getMonth() + 1,
         "day": 20,
         "description": "gas"
       },
@@ -114,8 +115,8 @@ export default class TransactionService {
         "type": "Income",
         "category": "Gambling",
         "value": 300,
-        "year": 2022,
-        "month": 10,
+        "year": today.getFullYear(),
+        "month": today.getMonth() + 1,
         "day": 15,
         "description": "palmeiras game"
       },
@@ -123,8 +124,8 @@ export default class TransactionService {
         "type": "Expense",
         "category": "Bills",
         "value": 300,
-        "year": 2022,
-        "month": 10,
+        "year": today.getFullYear(),
+        "month": today.getMonth() + 1,
         "day": 14,
         "description": "credit card bill"
       },
@@ -132,8 +133,8 @@ export default class TransactionService {
         "type": "Income",
         "category": "Salary",
         "value": 1000,
-        "year": 2022,
-        "month": 10,
+        "year": today.getFullYear(),
+        "month": today.getMonth() + 1,
         "day": 7,
         "description": "september salary"
       },
@@ -141,8 +142,8 @@ export default class TransactionService {
         "type": "Expense",
         "category": "Entertainment",
         "value": 20,
-        "year": 2022,
-        "month": 10,
+        "year": today.getFullYear(),
+        "month": today.getMonth() + 1,
         "day": 5,
         "description": "movie"
       },
@@ -150,8 +151,8 @@ export default class TransactionService {
         "type": "Income",
         "category": "Gift",
         "value": 50,
-        "year": 2022,
-        "month": 10,
+        "year": today.getFullYear(),
+        "month": today.getMonth() + 1,
         "day": 2,
         "description": "birthday gift"
       }]))
