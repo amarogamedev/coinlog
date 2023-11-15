@@ -5,7 +5,7 @@ import TransactionService from '../api/TransactionService';
 import { Card, Stack } from "react-bootstrap";
 import { Chart } from "react-google-charts";
 
-import { BsCashCoin, BsCart2, BsCoin, BsCalendar4Week, BsJournalBookmark, BsPencil } from "react-icons/bs";
+import { BsCashCoin, BsCart2, BsCoin, BsCalendar4Week, BsJournalBookmark, BsPencil, BsCardList } from "react-icons/bs";
 
 import TransactionTable from "../components/TransactionTable";
 import TransactionModal from "../components/modals/TransactionModal";
@@ -49,32 +49,42 @@ export default class Dashboard extends React.Component {
         return (
             <div>
                 <MockDataModal dashboard={this} />
-                <Card>
-                    <Card.Header><div className="text-body fs-4 fw-bold"><BsCoin />
-                        &nbsp;&nbsp;&nbsp;Current balance: {Intl.NumberFormat('en-US', { style: "currency", currency: "USD", })
-                            .format(this.transactionService.getBalance(this.state.transactionList))}</div></Card.Header>
-                    <Card.Body>
-                        <div className="d-flex align-items-center mb-2">
-                            <div className="container">
-                                <div className="d-grid gap-2">
-                                    <InitialValueModal dashboard={this} buttonVariant="secondary mb-2" buttonContent={<><BsPencil size={16} /> &nbsp;&nbsp;Edit initial value</>} />
+                <Stack direction="horizontal" gap={4}>
+                    <Card style={{width:"60%", minHeight:"200px"}}>
+                        <Card.Header><div className="text-body fs-4 fw-bold"><BsCoin />
+                            &nbsp;&nbsp;&nbsp;Control panel</div></Card.Header>
+                        <Card.Body>
+                            <div className="d-flex align-items-center mb-2">
+                                <div className="container">
+                                    Current balance: <b>{Intl.NumberFormat('en-US', { style: "currency", currency: "USD", })
+                                    .format(this.transactionService.getBalance(this.state.transactionList))}</b>
+                                    <div className="d-grid gap-2" style={{marginTop:"8px"}}>
+                                        <InitialValueModal dashboard={this} buttonVariant="secondary mb-2" buttonContent={<><BsPencil size={16} /> &nbsp;&nbsp;Edit initial value</>} />
+                                    </div>
+                                    <Stack direction="horizontal" gap={2}>
+                                        <TransactionModal buttonVariant="success w-100" name='New income' type="Income" index={null} dashboard={this}
+                                            options={this.categoryService.getAllCategoryNames()}
+                                            buttonContent={<><BsCashCoin size={16} /> &nbsp;&nbsp;Add new income</>} />
+                                        <TransactionModal buttonVariant="danger w-100" name='New expense' type="Expense" index={null} dashboard={this}
+                                            options={this.categoryService.getAllCategoryNames()}
+                                            buttonContent={<><BsCart2 size={16} /> &nbsp;&nbsp;Add new expense</>} />
+                                    </Stack>
                                 </div>
-                                <Stack direction="horizontal" gap={2}>
-                                    <TransactionModal buttonVariant="success w-100" name='New income' type="Income" index={null} dashboard={this}
-                                        options={this.categoryService.getAllCategoryNames()}
-                                        buttonContent={<><BsCashCoin size={16} /> &nbsp;&nbsp;Add new income</>} />
-                                    <TransactionModal buttonVariant="danger w-100" name='New expense' type="Expense" index={null} dashboard={this}
-                                        options={this.categoryService.getAllCategoryNames()}
-                                        buttonContent={<><BsCart2 size={16} /> &nbsp;&nbsp;Add new expense</>} />
-                                </Stack>
                             </div>
-                            <div className="container w-100">
-                                Welcome to CoinLog! This is a student project made by Luis Fellipe Amaro where you can manage your finances.
-                                The data is saved locally on your browser and can be deleted on the settings
+                        </Card.Body >
+                    </Card >
+                    <Card style={{minHeight:"230px"}}>
+                        <Card.Header><div className="text-body fs-4 fw-bold"><BsCardList />&nbsp;&nbsp;&nbsp;About </div></Card.Header>
+                        <Card.Body>
+                            <div className="d-flex align-items-center mb-2">
+                                <div className="container w-100">
+                                    Welcome to CoinLog! This is a student project made by Luis Fellipe Amaro where you can manage your finances.
+                                    The data is saved locally on your browser and can be deleted on the settings
+                                </div>
                             </div>
-                        </div>
-                    </Card.Body >
-                </Card >
+                        </Card.Body >
+                    </Card >
+                </Stack>
                 <br />
                 <Card>
                     <Card.Header><div className="text-body fs-4 fw-bold"><BsCalendar4Week />&nbsp;&nbsp;&nbsp;This month's overview</div></Card.Header>
